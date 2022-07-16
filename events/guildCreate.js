@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-const { Guild } = require("discord.js");
+const { id } = require("../config.json");
 
 module.exports = {
   name: "guildCreate",
-  /**
-   * @param {Guild} guild
-   */
-  execute(guild) {},
+  execute(guild, _, client) {
+    client.users.fetch(id, false).then((user) => {
+      user.send(`Added to new guild ${guild.id}`);
+    });
+  },
 };
