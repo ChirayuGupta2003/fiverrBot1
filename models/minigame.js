@@ -6,6 +6,7 @@ const minigame = new mongoose.Schema({
   newIndex: Number,
   guildID: String,
   guildName: String,
+  players: [{ id: String, tag: String, points: { default: 0, type: Number } }],
 });
 
 module.exports = mongoose.model("minigame", minigame);

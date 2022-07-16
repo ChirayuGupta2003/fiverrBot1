@@ -18,6 +18,8 @@ module.exports = {
       await msg.channel.send(
         `Game Started!!\nStart Counting from ${startIndex}`
       );
+    } else {
+      msg.reply("Game is already in progress");
     }
   },
 };
