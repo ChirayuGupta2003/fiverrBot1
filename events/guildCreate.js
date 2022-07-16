@@ -1,4 +1,4 @@
-const { id } = require("../config.json");
+const id = process.env['id']
 
 module.exports = {
   name: "guildCreate",
