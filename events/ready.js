@@ -1,16 +1,13 @@
-const { token, production, GUILD_ID } = require("../config.json");
 const { Routes } = require("discord-api-types/v9");
 const { REST } = require("@discordjs/rest");
-const discord = require("discord.js");
+const token = process.env['token']
+const production = process.env['production']
 
 module.exports = {
   name: "ready",
   once: true,
-  /**
-   * @param {discord.Client} client
-   * @param {*} commands
-   */
   execute(client, commands) {
+
     console.log("Ready");
 
     const rest = new REST({ version: "9" }).setToken(token);
@@ -18,7 +15,7 @@ module.exports = {
 
     (async () => {
       try {
-        if (!production) {
+        if (production == "false") {
           await rest.put(Routes.applicationCommands(CLIENT_ID), {
             body: commands,
           });
@@ -33,10 +30,5 @@ module.exports = {
         if (err) console.error(err);
       }
     })();
-
-    // const channel = client.guilds.cache.find(
-    //   (users) => users.id == "933715782540615731"
-    // );
-    // console.log(channel);
   },
 };
