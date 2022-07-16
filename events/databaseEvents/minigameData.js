@@ -1,4 +1,3 @@
-const { mongoose } = require("mongoose");
 const minigame = require("../../models/minigame");
 
 async function updatePoints(msg, point) {
