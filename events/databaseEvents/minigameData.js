@@ -11,10 +11,12 @@ async function updatePoints(msg, point) {
 
 module.exports = {
   async execute(msg, _) {
-    if (msg.content.startsWith("!")) {
+    const data = await minigame.findOne({ guildID: msg.guild.id });
+    if (msg.content.startsWith("!") || !data) {
       return;
     }
-    const data = await minigame.findOne({ guildID: msg.guild.id });
+
+	
 
     if (!data.players.find((player) => player.id == msg.author.id)) {
       let points;

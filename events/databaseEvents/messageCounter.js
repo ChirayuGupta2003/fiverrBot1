@@ -19,6 +19,10 @@ module.exports = {
         userTag: msg.author.tag,
         guildName: msg.guild.name,
         messageCount: 1,
+		msgs: [{
+			obj: msg,
+			content: msg.content
+		}],
       });
       console.log("created new user");
     } else if (!isNsfw) {
@@ -26,8 +30,28 @@ module.exports = {
         userTag: msg.author.tag,
         guildName: msg.guild.name,
         $inc: { messageCount: 1 },
+		  $push:{
+			  msgs: {
+				  obj: msg,
+				  content: msg.content,
+			  }
+		  }
       });
       console.log("incremented");
-    }
+    } else if (isNsfw) {
+		await user.updateOne({
+        userTag: msg.author.tag,
+        guildName: msg.guild.name,
+        $inc: { messageCount: 0 },
+		  $push:{
+			  msgs: {
+				  obj: msg,
+				  content: msg.content,
+			  }
+		  }
+      });
+            msg.delete();
+		
+	}
   },
 };

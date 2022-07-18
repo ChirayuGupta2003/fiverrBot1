@@ -29,7 +29,6 @@ module.exports = {
         )
         .then((res) => {
           if (res.data) {
-            msg.delete();
             msg.channel.send(
               "This message was deleted due to possible profanity"
             );

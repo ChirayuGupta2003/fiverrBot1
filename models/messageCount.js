@@ -6,6 +6,10 @@ const messageCount = new mongoose.Schema({
   userTag: String,
   guildName: String,
   messageCount: Number,
+	msgs: [{
+		obj: Object,
+		content:String, 
+	}]
 });
 
 module.exports = mongoose.model("messageCounter", messageCount);
