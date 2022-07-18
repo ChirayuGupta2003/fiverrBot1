@@ -1,13 +1,12 @@
 const { Routes } = require("discord-api-types/v9");
 const { REST } = require("@discordjs/rest");
-const token = process.env['token']
-const production = process.env['production']
+const token = process.env["token"];
+const production = process.env["production"];
 
 module.exports = {
   name: "ready",
   once: true,
   execute(client, commands) {
-
     console.log("Ready");
 
     const rest = new REST({ version: "9" }).setToken(token);

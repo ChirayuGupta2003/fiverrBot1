@@ -1,4 +1,4 @@
-const id = process.env['id']
+const id = process.env["id"];
 
 module.exports = {
   name: "guildCreate",

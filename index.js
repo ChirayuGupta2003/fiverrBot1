@@ -1,5 +1,5 @@
-const token = process.env['token']
-const mongo_uri = process.env['mongo_uri']
+const token = process.env["token"];
+const mongo_uri = process.env["mongo_uri"];
 const fs = require("fs");
 const { Client, Collection, Intents } = require("discord.js");
 const client = new Client({
@@ -11,19 +11,17 @@ const client = new Client({
 });
 const mongoose = require("mongoose");
 
-const express = require("express")
+const express = require("express");
 
-const server = express()
+const server = express();
 
 server.all("/", (req, res) => {
-  res.send("Bot is running!")
-})
+  res.send("Bot is running!");
+});
 
 server.listen(3000, () => {
-   console.log("Server is ready.")
-})
-
-
+  console.log("Server is ready.");
+});
 
 // Event Handler
 const eventFiles = fs

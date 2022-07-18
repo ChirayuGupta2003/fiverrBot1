@@ -16,8 +16,6 @@ module.exports = {
       return;
     }
 
-	
-
     if (!data.players.find((player) => player.id == msg.author.id)) {
       let points;
       if (msg.content == data.newIndex) {
